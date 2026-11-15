@@ -291,6 +291,5 @@ public class SLL {
         System.out.println("tail data: " + sll.getTail());
         System.out.println(sll.search(500));
         System.out.println(sll.findPosition(200));
-        sll.updateUsingPosition2(9, 900);
     }
 }
