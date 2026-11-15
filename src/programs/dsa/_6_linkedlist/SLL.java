@@ -179,8 +179,8 @@ public class SLL {
     // Returns true if value exists
     public boolean search(int target) {
         Node curr = head;
-        while (curr != null){
-            if (curr.data == target){
+        while (curr != null) {
+            if (curr.data == target) {
                 return true;
             }
             curr = curr.next;
@@ -192,8 +192,8 @@ public class SLL {
     public int findPosition(int target) {
         int position = 1;
         Node curr = head;
-        while (curr != null){
-            if (curr.data == target){
+        while (curr != null) {
+            if (curr.data == target) {
                 return position;
             }
             curr = curr.next;
@@ -208,7 +208,43 @@ public class SLL {
 
     // Update using position
     public void updateUsingPosition(int position, int data) {
-        //TODO
+        if (position < 1 || position > size) {
+            System.out.println("invalid position!");
+            return;
+        }
+
+        if (head == null && tail == null) {
+            System.out.println("LinkedList is empty!");
+            return;
+        }
+        if (position == 1) {
+            head.data = data;
+        } else if (position == size) {
+            tail.data = data;
+        } else {
+            int tempPositon = 1;
+            Node curr = head;
+            while (curr != null) {
+                if (position == tempPositon) {
+                    curr.data = data;
+                    return;
+                }
+                curr = curr.next;
+                tempPositon++;
+            }
+        }
+    }
+
+    public void updateUsingPosition2(int position, int data) {
+        if (position < 1 || position > size) {
+            System.out.println("Invalid positions!");
+            return;
+        }
+        Node curr = head;
+        for (int i = 1; i <= position - 1; i++) {
+            curr = curr.next;
+        }
+        curr.data = data;
     }
 
     // Update first occurrence of value
@@ -220,10 +256,10 @@ public class SLL {
 
     static void main(String[] args) {
         SLL sll = new SLL();
-        if ( sll.isEmpty()){
+        if (sll.isEmpty()) {
             System.out.println("LinkedList is empty!");
         }
-        System.out.println("size is: " +sll.getSize());
+        System.out.println("size is: " + sll.getSize());
         sll.insertAtHead(10);
         sll.printList();
 
@@ -233,7 +269,7 @@ public class SLL {
         sll.insertAtHead(30);
         sll.printList();
 
-       sll.insertAtTail(100);
+        sll.insertAtTail(100);
         sll.printList();
 
         sll.insertAtTail(110);
@@ -242,18 +278,21 @@ public class SLL {
         sll.insertAtTail(120);
         sll.printList();
 
-        sll.insertAtPosition(1,22);
+        sll.insertAtPosition(1, 22);
         sll.printList();
 
-         sll.insertAtPosition(8,200);
+        sll.insertAtPosition(8, 200);
         sll.printList();
 
-        sll.insertAtPosition(5,500);
+        sll.insertAtPosition(5, 500);
         sll.printList();
 
-        System.out.println("head data: "+ sll.getHead());
-        System.out.println("tail data: " +sll.getTail());
+        System.out.println("head data: " + sll.getHead());
+        System.out.println("tail data: " + sll.getTail());
         System.out.println(sll.search(500));
-        System.out.println(sll.findPosition(20));
+        System.out.println(sll.findPosition(200));
+        sll.updateUsingPosition2(9, 900);
+        sll.printList();
     }
 }
+
