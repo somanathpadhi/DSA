@@ -3,20 +3,20 @@ package programs.dsa._6_linkedlist;
 
 public class SLL {
 
-    static class SLLNode {
+    static class Node {
 
         int data;
-        SLLNode next;
+        Node next;
 
         //constructor
-        SLLNode(int data) {
+        Node(int data) {
             this.data = data;
             this.next = null;
         }
     }
 
-    SLLNode head;
-    SLLNode tail;
+    Node head;
+    Node tail;
     int size;
 
     //constructor
@@ -32,12 +32,11 @@ public class SLL {
 
     // Insert at beginning
     public void insertAtHead(int data) {
-        SLLNode newNode = new SLLNode(data);
+        Node newNode = new Node(data);
         if (head == null && tail == null) {
             head = newNode;
             tail = newNode;
-        }
-        else{
+        } else {
             newNode.next = head;
             head = newNode;
         }
@@ -46,12 +45,11 @@ public class SLL {
 
     // Insert at end
     public void insertAtTail(int data) {
-        SLLNode newNode = new SLLNode(data);
-        if (head == null && tail == null){
+        Node newNode = new Node(data);
+        if (head == null && tail == null) {
             head = newNode;
             tail = newNode;
-        }
-        else{
+        } else {
             tail.next = newNode;
             tail = newNode;
         }
@@ -60,8 +58,33 @@ public class SLL {
     }
 
     // Insert at position | position is 1 based indexing
-    public void insertAtPosition(int data) {
-        //TODO
+    public void insertAtPosition(int position, int data) {
+
+        if (position <= 0 || position > size + 1) {
+            System.out.println("invalid position!");
+            return;
+        }
+
+        Node newNode = new Node(data);
+        if (head == null && tail == null) {
+            head = newNode;
+            tail = newNode;
+        } else if (position == 1) {
+            newNode.next = head;
+            head = newNode;
+        } else if (position == size + 1) {
+            tail.next = newNode;
+            tail = newNode;
+
+        } else {
+            Node curr = head;
+            for (int i = 0; i < position - 2; i++) {
+                curr = curr.next;
+            }
+            newNode.next = curr.next;
+            curr.next = newNode;
+        }
+        size++;
     }
 
 
@@ -70,12 +93,12 @@ public class SLL {
     // ====================
 
     public void printList() {
-        if (head == null){
+        if (head == null) {
             System.out.println("Linked list is empty!");
         }
-        SLLNode curr = head;
+        Node curr = head;
 
-        while (curr != null){
+        while (curr != null) {
             System.out.print(curr.data + " -> ");
             curr = curr.next;
         }
@@ -161,8 +184,6 @@ public class SLL {
     }
 
 
-
-
     static void main(String[] args) {
         SLL sll = new SLL();
         sll.insertAtHead(5);
@@ -170,7 +191,7 @@ public class SLL {
         sll.insertAtHead(3);
         sll.insertAtTail(9);
         sll.insertAtTail(10);
+        sll.insertAtPosition2(7, 7);
         sll.printList();
     }
-
 }
