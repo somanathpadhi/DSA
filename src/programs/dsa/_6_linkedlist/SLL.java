@@ -1,6 +1,5 @@
 package programs.dsa._6_linkedlist;
 
-
 public class SLL {
 
     static class Node {
@@ -54,7 +53,6 @@ public class SLL {
             tail = newNode;
         }
         size++;
-
     }
 
     // Insert at position | position is 1 based indexing
@@ -75,7 +73,6 @@ public class SLL {
         } else if (position == size + 1) {
             tail.next = newNode;
             tail = newNode;
-
         } else {
             Node curr = head;
             for (int i = 0; i < position - 2; i++) {
@@ -87,11 +84,13 @@ public class SLL {
         size++;
     }
 
-    public void insertAtPosition2(int position, int data) {
+    public void insertAtPositionOptimized(int position, int data) {
+
         if (position < 1 || position > size + 1) {
             System.out.println("Invalid position!");
             return;
         }
+
         Node newNode = new Node(data);
         if (position == 1) {
             insertAtHead(data);
@@ -99,7 +98,7 @@ public class SLL {
             insertAtTail(data);
         } else {
             Node curr = head;
-            for (int i = 0; i < position - 2; i++) {
+            for (int i = 1; i <= position - 2; i++) {
                 curr = curr.next;
             }
             newNode.next = curr.next;
@@ -107,6 +106,7 @@ public class SLL {
         }
         size++;
     }
+
     // ====================
     // Traversal
     // ====================
@@ -115,8 +115,8 @@ public class SLL {
         if (head == null) {
             System.out.println("Linked list is empty!");
         }
-        Node curr = head;
 
+        Node curr = head;
         while (curr != null) {
             System.out.print(curr.data + " -> ");
             curr = curr.next;
@@ -152,24 +152,55 @@ public class SLL {
         //TODO
     }
 
-
     // ====================
     // Deletion
     // ====================
 
     // Delete first
     public void deleteHead() {
-        //TODO
+        if (head == null) {
+            System.out.println("LInkedList is empty!");
+        } else {
+            head = head.next;
+            size--;
+        }
     }
 
     // Delete end
     public void deleteTail() {
-        //TODO
+        if (tail == null) {
+            System.out.println("LInkedList is empty!");
+        } else {
+            Node curr = head;
+            while (curr.next != tail) {
+                curr = curr.next;
+            }
+            tail = curr;
+            curr.next = null;
+            size--;
+        }
     }
 
     // Delete at position | position is 1 based indexing
     public void deleteAtPosition(int position) {
-        //TODO
+        if (position < 1 || position > size) {
+            System.out.println("Invalid position!");
+            return;
+        }
+        if (head == null || tail == null) {
+            System.out.println("LinkedList is empty!");
+        } else if (position == 1) {
+            deleteHead();
+        } else if (position == size) {
+            deleteTail();
+        } else {
+            Node prevNode = head;
+            for (int i = 1; i <= position - 2; i++) {
+                prevNode = prevNode.next;
+            }
+            prevNode.next = prevNode.next.next;
+            size--;
+        }
     }
 
     // ====================
@@ -212,7 +243,7 @@ public class SLL {
             System.out.println("invalid position!");
             return;
         }
-        if (head == null) {
+        if (head == null && tail == null) {
             System.out.println("LinkedList is empty!");
             return;
         }
@@ -263,7 +294,6 @@ public class SLL {
         return false;
     }
 
-
     static void main(String[] args) {
         SLL sll = new SLL();
         if (sll.isEmpty()) {
@@ -288,7 +318,7 @@ public class SLL {
         sll.insertAtTail(120);
         sll.printList();
 
-        sll.insertAtPosition(1, 22);
+        sll.insertAtPosition(1, 40);
         sll.printList();
 
         sll.insertAtPosition(8, 200);
@@ -302,6 +332,14 @@ public class SLL {
         sll.updateUsingPosition2(6, 2000);
         sll.printList();
         System.out.println(sll.updateValue(2000, 35));
+        sll.printList();
+        sll.deleteHead();
+        sll.printList();
+        sll.deleteTail();
+        sll.printList();
+        sll.deleteAtPosition(4);
+        sll.printList();
+        sll.insertAtPositionOptimized(8, 55);
         sll.printList();
     }
 }
