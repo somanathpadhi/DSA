@@ -212,8 +212,7 @@ public class SLL {
             System.out.println("invalid position!");
             return;
         }
-
-        if (head == null && tail == null) {
+        if (head == null) {
             System.out.println("LinkedList is empty!");
             return;
         }
@@ -249,7 +248,18 @@ public class SLL {
 
     // Update first occurrence of value
     public boolean updateValue(int oldValue, int newValue) {
-        //TODO
+        if (head == null && tail == null) {
+            System.out.println("LinkedList is empty!");
+            return false;
+        }
+        Node curr = head;
+        while (curr != null) {
+            if (curr.data == oldValue) {
+                curr.data = newValue;
+                return true;
+            }
+            curr = curr.next;
+        }
         return false;
     }
 
@@ -289,5 +299,9 @@ public class SLL {
         System.out.println("tail data: " + sll.getTail());
         System.out.println(sll.search(500));
         System.out.println(sll.findPosition(200));
+        sll.updateUsingPosition2(6, 2000);
+        sll.printList();
+        System.out.println(sll.updateValue(2000, 35));
+        sll.printList();
     }
 }
