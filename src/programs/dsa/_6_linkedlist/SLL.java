@@ -121,7 +121,7 @@ public class SLL {
             System.out.print(curr.data + " -> ");
             curr = curr.next;
         }
-        System.out.print("null");
+        System.out.println();
     }
 
     // ====================
@@ -129,7 +129,6 @@ public class SLL {
     // ====================
 
     public int getSize() {
-        //TODO
         return size;
     }
 
@@ -138,13 +137,15 @@ public class SLL {
     }
 
     public int getHead() {
-        //TODO
-        return -1;
+        if (head == null) {
+            return -1;
+        } else return head.data;
     }
 
     public int getTail() {
-        //TODO
-        return -1;
+        if (tail == null) {
+            return -1;
+        } else return tail.data;
     }
 
     public void clear() {
@@ -177,13 +178,27 @@ public class SLL {
 
     // Returns true if value exists
     public boolean search(int target) {
-        //TODO
+        Node curr = head;
+        while (curr != null){
+            if (curr.data == target){
+                return true;
+            }
+            curr = curr.next;
+        }
         return false;
     }
 
     // Returns 1-based position
     public int findPosition(int target) {
-        //TODO
+        int position = 1;
+        Node curr = head;
+        while (curr != null){
+            if (curr.data == target){
+                return position;
+            }
+            curr = curr.next;
+            position++;
+        }
         return -1;
     }
 
@@ -205,12 +220,40 @@ public class SLL {
 
     static void main(String[] args) {
         SLL sll = new SLL();
-        sll.insertAtHead(5);
-        sll.insertAtHead(4);
-        sll.insertAtHead(3);
-        sll.insertAtTail(9);
-        sll.insertAtTail(10);
-        sll.insertAtPosition2(7, 7);
+        if ( sll.isEmpty()){
+            System.out.println("LinkedList is empty!");
+        }
+        System.out.println("size is: " +sll.getSize());
+        sll.insertAtHead(10);
         sll.printList();
+
+        sll.insertAtHead(20);
+        sll.printList();
+
+        sll.insertAtHead(30);
+        sll.printList();
+
+       sll.insertAtTail(100);
+        sll.printList();
+
+        sll.insertAtTail(110);
+        sll.printList();
+
+        sll.insertAtTail(120);
+        sll.printList();
+
+        sll.insertAtPosition(1,22);
+        sll.printList();
+
+         sll.insertAtPosition(8,200);
+        sll.printList();
+
+        sll.insertAtPosition(5,500);
+        sll.printList();
+
+        System.out.println("head data: "+ sll.getHead());
+        System.out.println("tail data: " +sll.getTail());
+        System.out.println(sll.search(500));
+        System.out.println(sll.findPosition(20));
     }
 }
