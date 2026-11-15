@@ -87,6 +87,27 @@ public class SLL {
         size++;
     }
 
+    public void insertAtPosition2(int position, int data) {
+        if (position < 1 || position > size + 1) {
+            System.out.println("Invalid position!");
+            return;
+        }
+        Node newNode = new Node(data);
+        if (position == 1) {
+            insertAtHead(data);
+        } else if (position == size + 1) {
+            insertAtTail(data);
+        } else {
+            Node curr = head;
+            for (int i = 0; i < position - 2; i++) {
+                curr = curr.next;
+            }
+            newNode.next = curr.next;
+            curr.next = newNode;
+        }
+        size++;
+    }
+
 
     // ====================
     // Traversal
