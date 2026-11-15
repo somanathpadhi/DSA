@@ -7,7 +7,6 @@ public class SLL {
 
         int data;
         Node next;
-
         //constructor
         Node(int data) {
             this.data = data;
