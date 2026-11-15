@@ -283,7 +283,6 @@ public class SLL {
 
         sll.insertAtPosition(8, 200);
         sll.printList();
-
         sll.insertAtPosition(5, 500);
         sll.printList();
         System.out.println("head data: " + sll.getHead());
