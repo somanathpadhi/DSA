@@ -103,8 +103,8 @@ public class SLL {
             }
             newNode.next = curr.next;
             curr.next = newNode;
+            size++;
         }
-        size++;
     }
 
     // ====================
@@ -160,9 +160,13 @@ public class SLL {
     public void deleteHead() {
         if (head == null) {
             System.out.println("LInkedList is empty!");
-        } else {
-            head = head.next;
-            size--;
+            return;
+        }
+
+        head = head.next;
+        size--;
+        if (head == null) {
+            tail = null;
         }
     }
 
@@ -170,15 +174,19 @@ public class SLL {
     public void deleteTail() {
         if (tail == null) {
             System.out.println("LInkedList is empty!");
-        } else {
+            return;
+        } else if (tail == head) {
+            head = null;
+            tail = null;
+        }else {
             Node curr = head;
             while (curr.next != tail) {
                 curr = curr.next;
             }
             tail = curr;
             curr.next = null;
-            size--;
         }
+        size--;
     }
 
     // Delete at position | position is 1 based indexing
@@ -340,6 +348,20 @@ public class SLL {
         sll.deleteAtPosition(4);
         sll.printList();
         sll.insertAtPositionOptimized(8, 55);
+        sll.deleteHead();
+        sll.printList();
+        sll.deleteHead();
+        sll.printList();
+        sll.deleteHead();
+        sll.printList();
+        sll.deleteHead();
+        sll.printList();
+        sll.deleteHead();
+        sll.printList();
+
+        sll.deleteTail();
+        sll.printList();
+        sll.deleteHead();
         sll.printList();
     }
 }
