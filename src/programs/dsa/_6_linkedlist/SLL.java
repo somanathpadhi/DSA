@@ -285,7 +285,6 @@ public class SLL {
 
         sll.insertAtPosition(5, 500);
         sll.printList();
-
         System.out.println("head data: " + sll.getHead());
         System.out.println("tail data: " + sll.getTail());
         System.out.println(sll.search(500));
