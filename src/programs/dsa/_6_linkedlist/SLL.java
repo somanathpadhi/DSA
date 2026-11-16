@@ -82,12 +82,12 @@ public class SLL {
             System.out.println("Invalid position!");
             return;
         }
-        Node newNode = new Node(data);
         if (position == 1) {
             insertAtHead(data);
         } else if (position == size + 1) {
             insertAtTail(data);
         } else {
+            Node newNode = new Node(data);
             Node curr = head;
             for (int i = 1; i <= position - 2; i++) {
                 curr = curr.next;
@@ -105,6 +105,7 @@ public class SLL {
     public void printList() {
         if (head == null) {
             System.out.println("Linked list is empty!");
+            return;
         }
         Node curr = head;
         while (curr != null) {
@@ -139,7 +140,9 @@ public class SLL {
     }
 
     public void clear() {
-        //TODO
+        head = null;
+        tail = null;
+        size = 0;
     }
 
     // ====================
@@ -290,6 +293,44 @@ public class SLL {
         }
         return false;
     }
+
+    //1. Additional functions to implement
+
+    //Basic operations — recommended next
+    //#	Function	Purpose	Priority
+    //1	reverse()	Reverse the entire linked list	High
+    //2	findMiddle()	Find the middle node	High
+    //3	getNthFromEnd(int n)	Find Nth node from the end	High
+    //4	deleteByValue(int value)	Delete first matching node	High
+    //5	deleteAllOccurrences(int value)	Delete every matching node	Medium
+    //6	contains(int value)	Already covered by search()	Done
+    //7	countOccurrences(int value)	Count how often a value appears	Medium
+    //8	getAtPosition(int position)	Retrieve data at a position	High
+    //9	removeDuplicates()	Remove duplicate values	High
+    //10	toArray()	Convert linked list to an array	Low
+    //
+
+    //Intermediate operations — interview preparation
+    //#	Function	Purpose
+    //11	hasCycle()	Detect a cycle using slow and fast pointers
+    //12	findCycleStart()	Find where a cycle begins
+    //13	removeCycle()	Remove a cycle
+    //14	isPalindrome()	Check whether the list is a palindrome
+    //15	reverseRecursive()	Reverse using recursion
+    //16	mergeSortedLists()	Merge two sorted linked lists
+    //17	findIntersection()	Find the common node of two lists
+    //18	rotateRight(int k)	Rotate the list by K positions
+    //19	reverseInGroups(int k)	Reverse nodes in groups of K
+    //20	swapPairs()	Swap adjacent nodes
+    //
+
+    //Advanced operations — optional
+    //#	Function	Purpose
+    //21	mergeSort()	Sort the linked list
+    //22	partition(int x)	Partition nodes around a value
+    //23	reorderList()	Reorder first, last, second, second-last
+    //24	removeNthFromEnd(int n)	Delete Nth node from end
+    //25	addTwoNumbers()
 
     static void main(String[] args) {
         SLL sll = new SLL();
