@@ -1,23 +1,18 @@
 package programs.dsa._6_linkedlist;
 
 public class SLL {
-
     static class Node {
-
         int data;
         Node next;
-
         //constructor
         Node(int data) {
             this.data = data;
             this.next = null;
         }
     }
-
     Node head;
     Node tail;
     int size;
-
     //constructor
     SLL() {
         this.head = null;
@@ -57,12 +52,10 @@ public class SLL {
 
     // Insert at position | position is 1 based indexing
     public void insertAtPosition(int position, int data) {
-
         if (position <= 0 || position > size + 1) {
             System.out.println("invalid position!");
             return;
         }
-
         Node newNode = new Node(data);
         if (head == null && tail == null) {
             head = newNode;
@@ -85,12 +78,10 @@ public class SLL {
     }
 
     public void insertAtPositionOptimized(int position, int data) {
-
         if (position < 1 || position > size + 1) {
             System.out.println("Invalid position!");
             return;
         }
-
         Node newNode = new Node(data);
         if (position == 1) {
             insertAtHead(data);
@@ -115,7 +106,6 @@ public class SLL {
         if (head == null) {
             System.out.println("Linked list is empty!");
         }
-
         Node curr = head;
         while (curr != null) {
             System.out.print(curr.data + " -> ");
@@ -162,7 +152,6 @@ public class SLL {
             System.out.println("LInkedList is empty!");
             return;
         }
-
         head = head.next;
         size--;
         if (head == null) {
@@ -310,25 +299,18 @@ public class SLL {
         System.out.println("size is: " + sll.getSize());
         sll.insertAtHead(10);
         sll.printList();
-
         sll.insertAtHead(20);
         sll.printList();
-
         sll.insertAtHead(30);
         sll.printList();
-
         sll.insertAtTail(100);
         sll.printList();
-
         sll.insertAtTail(110);
         sll.printList();
-
         sll.insertAtTail(120);
         sll.printList();
-
         sll.insertAtPosition(1, 40);
         sll.printList();
-
         sll.insertAtPosition(8, 200);
         sll.printList();
         sll.insertAtPosition(5, 500);
@@ -358,7 +340,6 @@ public class SLL {
         sll.printList();
         sll.deleteHead();
         sll.printList();
-
         sll.deleteTail();
         sll.printList();
         sll.deleteHead();
