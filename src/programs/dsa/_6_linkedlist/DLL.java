@@ -1,24 +1,24 @@
 package programs.dsa._6_linkedlist;
 
 public class DLL {
-    static class DLLNode{
+    static class Node{
         int data;
-        DLLNode prev;
-        DLLNode next;
+        Node prev;
+        Node next;
 
-        DLLNode(int data){
+        Node(int data){
             this.data = data;
             this.prev = null;
             this.next = null;
         }
     }
 
-    DLLNode head;
-    DLLNode tail;
+    Node head;
+    Node tail;
     int size;
     DLL(){
         this.head = null;
         this.tail = null;
-        size = 0;
+        this.size = 0;
     }
 }
