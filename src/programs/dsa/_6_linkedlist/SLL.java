@@ -4,15 +4,18 @@ public class SLL {
     static class Node {
         int data;
         Node next;
+
         //constructor
         Node(int data) {
             this.data = data;
             this.next = null;
         }
     }
+
     Node head;
     Node tail;
     int size;
+
     //constructor
     SLL() {
         this.head = null;
@@ -170,7 +173,7 @@ public class SLL {
         } else if (tail == head) {
             head = null;
             tail = null;
-        }else {
+        } else {
             Node curr = head;
             while (curr.next != tail) {
                 curr = curr.next;
