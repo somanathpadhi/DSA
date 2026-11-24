@@ -1,6 +1,6 @@
-package programs.dsa._6_linkedlist
+package programs.dsa._6_linkedlist.kotlin
 
-class SLL {
+class SinglyLinkedList {
 
     class Node(var data: Int) {
         var next: Node? = null
@@ -336,7 +336,7 @@ class SLL {
 
 fun main() {
 
-    val sll = SLL()
+    val sll = SinglyLinkedList()
 
     if (sll.isEmpty()) {
         println("LinkedList is empty!")
