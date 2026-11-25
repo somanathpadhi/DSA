@@ -368,6 +368,21 @@ public class SLL {
         reverseLinkedListRecursion(prev, next);
     }
 
+    public int middleNode(){
+
+        if (head == null){
+            return -1;
+        }
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow.data;
+    }
+
     static void main(String[] args) {
         SLL sll = new SLL();
         if (sll.isEmpty()) {
@@ -384,10 +399,13 @@ public class SLL {
         sll.printList();
         sll.insertAtTail(110);
         sll.printList();
+
         sll.insertAtTail(120);
         sll.printList();
+        System.out.println("Middle Node is  -> " + sll.middleNode());
         // sll.reverseLinkedList();
-        sll.reverseLinkedListRecursion(null, sll.getHeadNode());
+        //sll.reverseLinkedListRecursion(null, sll.getHeadNode());
+
         sll.printList();
         sll.insertAtPosition(1, 40);
         sll.printList();
