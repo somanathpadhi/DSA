@@ -1,4 +1,4 @@
-package programs.dsa._5_search_and_sort
+package programs.dsa._5_sorting
 
 fun main() {
     val list = intArrayOf(1, 3, 5, 7, 2, 4, 6)

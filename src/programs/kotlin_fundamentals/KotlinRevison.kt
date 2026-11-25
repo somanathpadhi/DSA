@@ -1,4 +1,4 @@
-package programs.kotlin_codes
+package programs.kotlin_fundamentals
 
 import kotlin.collections.iterator
 import kotlin.properties.Delegates

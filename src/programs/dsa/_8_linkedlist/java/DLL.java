@@ -1,4 +1,4 @@
-package programs.dsa._6_linkedlist.implementation.java;
+package programs.dsa._8_linkedlist.java;
 
 public class DLL {
     static class Node {

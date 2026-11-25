@@ -1,4 +1,4 @@
-package programs.kotlin_codes
+package programs.kotlin_fundamentals
 
 import kotlinx.coroutines.flow.count
 import kotlinx.coroutines.flow.drop

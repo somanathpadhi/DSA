@@ -1,4 +1,4 @@
-package programs.dsa._6_linkedlist.implementation.java;
+package programs.dsa._8_linkedlist.java;
 
 public class SLL {
     static class Node {
@@ -369,7 +369,6 @@ public class SLL {
     }
 
     public int middleNode(){
-
         if (head == null){
             return -1;
         }
@@ -382,6 +381,23 @@ public class SLL {
         }
         return slow.data;
     }
+    public int middleNode2(){
+        if (head == null){
+            return -1;
+        }
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null){
+            fast = fast.next;
+            if (fast != null){
+                fast = fast.next;
+                slow = slow.next;
+            }
+        }
+        return slow.data;
+    }
+
 
     static void main(String[] args) {
         SLL sll = new SLL();

@@ -53,13 +53,13 @@ state hoisting
 3 inner class , nested class
 4 generic Sealed classes
 
-5 sealed class programs.kotlin_codes.Result<out T> {
+5 sealed class programs.kotlin_fundamentals.Result<out T> {
 
-    data object Loading : programs.kotlin_codes.Result<Nothing>()
+    data object Loading : programs.kotlin_fundamentals.Result<Nothing>()
 
-    data class Success<T>(val data: T) : programs.kotlin_codes.Result<T>()
+    data class Success<T>(val data: T) : programs.kotlin_fundamentals.Result<T>()
 
-    data class Error(val message: String) : programs.kotlin_codes.Result<Nothing>()
+    data class Error(val message: String) : programs.kotlin_fundamentals.Result<Nothing>()
 }
 proper study of this generic sealed class is required
 6 variance, covariance, contravariance

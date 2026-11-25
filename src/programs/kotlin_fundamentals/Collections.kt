@@ -1,4 +1,4 @@
-package programs.kotlin_codes
+package programs.kotlin_fundamentals
 
 fun main() {
     //Kotlin has 2 types of every collection

@@ -1,4 +1,4 @@
-package programs.dsa._6_linkedlist.implementation.kotlin
+package programs.dsa._8_linkedlist.kotlin
 
 class CircularSinglyLinkedList {
 

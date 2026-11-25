@@ -5,10 +5,10 @@ package programs.dsa._4_string
 //"Hello World"
 //→ "olleH dlroW"
 fun main() {
-    println(reverEachWord("Hello World"))
+    println(reverseEachWord("Hello World"))
 }
 
-fun reverEachWord(str: String): String {
+fun reverseEachWord(str: String): String {
 
     var word = " "
     var resultStr = " "

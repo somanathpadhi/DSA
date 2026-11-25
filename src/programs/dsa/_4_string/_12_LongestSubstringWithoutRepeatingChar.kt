@@ -1,9 +1,51 @@
 package programs.dsa._4_string
 
 fun main() {
-    val str = "fabcdabcgj"
-    print(longestSubS(str))
+    //abcabcbb -> abc
+    val str = "abcaabcbb"
+    print(longestSubstringWithoutRepeatingChar(str))
 }
+
+// Approach: Sliding Window + HashSet
+// 1. Initialize left pointer, empty set and empty result.
+// 2. Iterate through the string using index as the right pointer.
+// 3. If a duplicate character is found, remove characters from
+//    the left and increment left until the duplicate is removed.
+// 4. Add the current character to the set.
+// 5. If the current window is larger than the result,
+//    update the result using substring(left, index + 1).
+// 6. Return the longest substring.
+//
+// Example: "abcaabcbb" -> "abc"
+
+fun longestSubstringWithoutRepeatingChar(str: String): String {
+
+    var left = 0
+    val set = mutableSetOf<Char>()
+    var result = ""
+
+    for (index in str.indices) {
+        while (str[index] in set) {
+            set.remove(str[left])
+            left++
+        }
+
+        set.add(str[index])
+
+        if (set.size > result.length) {
+            result = str.substring(left, index + 1)
+        }
+    }
+    return result
+}
+
+
+
+
+
+//other approaches
+//------------------
+
 
 fun longestSubstring2(s: String): String {
     val count = IntArray(256) { 0 }
@@ -94,3 +136,7 @@ fun longestSubstring(s: String): String {
     }
     return result
 }
+
+
+
+

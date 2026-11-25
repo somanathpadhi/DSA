@@ -1,4 +1,4 @@
-package programs.kotlin_codes
+package programs.kotlin_fundamentals
 
 //var means the value can be reassigned later
 //Use it when the value needs to change over time
