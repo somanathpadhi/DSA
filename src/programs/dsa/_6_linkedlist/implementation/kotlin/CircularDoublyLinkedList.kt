@@ -1,4 +1,4 @@
-package programs.dsa._6_linkedlist.kotlin
+package programs.dsa._6_linkedlist.implementation.kotlin
 
 class CircularDoublyLinkedList {
 

@@ -1,4 +1,4 @@
-package programs.dsa._6_linkedlist.java;
+package programs.dsa._6_linkedlist.implementation.java;
 
 public class SLL {
     static class Node {
@@ -134,6 +134,10 @@ public class SLL {
         if (head == null) {
             return -1;
         } else return head.data;
+    }
+
+    public Node getHeadNode(){
+        return head;
     }
 
     public int getTail() {
@@ -335,6 +339,35 @@ public class SLL {
     //24	removeNthFromEnd(int n)	Delete Nth node from end
     //25	addTwoNumbers()
 
+    public void reverseLinkedList() {
+
+        Node curr = head;
+        Node prev = null;
+        tail = head;
+
+        while (curr != null) {
+            Node next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+
+    public void reverseLinkedListRecursion(Node prev, Node curr) {
+        if (prev == null && curr == head){
+            tail = head;
+        }
+        if (curr == null){
+            head = prev;
+            return;
+        }
+        Node next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        reverseLinkedListRecursion(prev, next);
+    }
+
     static void main(String[] args) {
         SLL sll = new SLL();
         if (sll.isEmpty()) {
@@ -352,6 +385,9 @@ public class SLL {
         sll.insertAtTail(110);
         sll.printList();
         sll.insertAtTail(120);
+        sll.printList();
+        // sll.reverseLinkedList();
+        sll.reverseLinkedListRecursion(null, sll.getHeadNode());
         sll.printList();
         sll.insertAtPosition(1, 40);
         sll.printList();

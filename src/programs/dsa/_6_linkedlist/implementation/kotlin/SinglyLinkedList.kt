@@ -1,4 +1,4 @@
-package programs.dsa._6_linkedlist.kotlin
+package programs.dsa._6_linkedlist.implementation.kotlin
 
 class SinglyLinkedList {
 
@@ -138,6 +138,10 @@ class SinglyLinkedList {
 
     fun getHead(): Int {
         return head?.data ?: -1
+    }
+
+    fun getHeadNode(): Node?{
+        return head
     }
 
     fun getTail(): Int {
